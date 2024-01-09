@@ -48,9 +48,8 @@ class RegistartPagoNaranja(models.Model):
     ingresar_hora = models.TimeField()
     N_transaccion = models.FloatField()
     N_operacion = models.IntegerField()
-    telefono_titular = models.IntegerField()
+    telefono_titular = models.BigIntegerField()
     #falta agregar colaborador y hacer una seccion de buscar pago
     def __str__(self):
         return self.Nombre_Titular
-
 
