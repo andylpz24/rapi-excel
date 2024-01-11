@@ -1,17 +1,34 @@
-from django.shortcuts import render
-from django.views.generic import ListView, DetailView
-from .models import TicketPersonalizado
+from django.shortcuts import render, redirect
+from .forms import TicketPersonalizadoForm
 
-def saludo(request):
+def inicio(request):
     return render(request,'index.html')
 
-def VistaTicketPersonalizadoLista(request):
-    model = TicketPersonalizado
-    template_name = 'templates/ticketpersonalizado_lista.html'  
-    context_object_name = 'tickets_personalizado'
+def ticket_naranja(request):
+    return render(request, 'ticket_naranja.html')
 
-def VistaTicketPersonalizadoDetalle(request):
-    model = TicketPersonalizado
-    template_name = 'templates/ticketpersonalizado_detalle.html'  
-    context_object_name = 'ticket_lista'
+def configuracion(request):
+    return render(request, 'configuracion.html')
 
+def ticket_servicekairos(request):
+    return render(request, 'ticket_servicekairos.html')
+
+def registrar_adicional(request):
+    return render(request, 'registrar_adicional.html')
+
+def abrir_promo_escolar(request):
+    return render(request, 'abrir_promo_escolar.html')
+
+def ticket_personalizado(request):
+    if request.method == 'POST':
+        form = TicketPersonalizadoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('ticket_personalizado')
+    else:
+        form = TicketPersonalizadoForm()
+    
+    return render(request, 'ticket_personalizado.html', {'form': form})
+
+def ticket_sameep(request):
+    return render(request, 'ticket_sameep.html')
