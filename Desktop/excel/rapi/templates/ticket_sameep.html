@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Sameep</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #2c3e50;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ecf0f1;
+            margin: 20px 0;
+        }
+
+        form {
+            background-color: #34495e;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            width: 80%;
+            box-sizing: border-box;
+            margin-top: 20px;
+        }
+
+        input {
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid #2c3e50;
+            border-radius: 4px;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+        }
+
+        button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div style="width: 80%; text-align: center;">
+        <h1>Crear Ticket Sameep</h1>
+    </div>
+    <form method="post" action="{% url 'ticket_sameep' %}">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+
+        <label for="{{ form.nombre_apellido_cliente.id_for_label }}">Nombre y Apellido del Cliente:</label>
+        <input type="text" name="{{ form.nombre_apellido_cliente.name }}" value="{{ form.nombre_apellido_cliente.value }}">
+        {{ form.nombre_apellido_cliente.errors }}<br>
+
+        <label for="{{ form.cliente_suministro.id_for_label }}">Cliente Suministro:</label>
+        <input type="text" name="{{ form.cliente_suministro.name }}" value="{{ form.cliente_suministro.value }}">
+        {{ form.cliente_suministro.errors }}<br>
+
+        <label for="{{ form.ingresar_factura.id_for_label }}">Ingresar Número de Factura:</label>
+        <input type="text" name="{{ form.ingresar_factura.name }}" value="{{ form.ingresar_factura.value }}">
+        {{ form.ingresar_factura.errors }}<br>
+
+        <label for="{{ form.ingresar_fecha.id_for_label }}">Ingresar Fecha:</label>
+        <input type="text" name="{{ form.ingresar_fecha.name }}" value="{{ form.ingresar_fecha.value }}">
+        {{ form.ingresar_fecha.errors }}<br>
+
+        <label for="{{ form.ingresar_hora.id_for_label }}">Ingresar Hora:</label>
+        <input type="text" name="{{ form.ingresar_hora.name }}" value="{{ form.ingresar_hora.value }}">
+        {{ form.ingresar_hora.errors }}<br>
+
+        <label for="{{ form.paysen_ID.id_for_label }}">Paysen ID:</label>
+        <input type="text" name="{{ form.paysen_ID.name }}" value="{{ form.paysen_ID.value }}">
+        {{ form.paysen_ID.errors }}<br>
+
+        <label for="{{ form.importe.id_for_label }}">Importe:</label>
+        <input type="text" name="{{ form.importe.name }}" value="{{ form.importe.value }}">
+        {{ form.importe.errors }}<br>
+
+        <label for="{{ form.codigo_verificacion.id_for_label }}">Código de Verificación:</label>
+        <input type="text" name="{{ form.codigo_verificacion.name }}" value="{{ form.codigo_verificacion.value }}">
+        {{ form.codigo_verificacion.errors }}<br>
+
+        <button type="submit">Guardar</button>
+    </form>
+</body>
+</html>

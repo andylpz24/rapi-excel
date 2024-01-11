@@ -17,7 +17,6 @@ class TicketPersonalizado(models.Model):
     def __str__(self):
         return self.ingresar_empresa
 
-    
 class TicketSameep(models.Model):
     nombre_apellido_cliente = models.CharField(max_length=250)
     cliente_suministro = models.TextField()

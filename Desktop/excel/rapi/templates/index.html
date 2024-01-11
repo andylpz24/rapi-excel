@@ -78,10 +78,10 @@
         <button type="button">Ticket Servicekairos</button>
         <button type="button">Registrar Adicional</button>
         <button type="button">Abrir Promo Escolar</button>
-        <button type="button">Ticket Personalizado</button>
-        <button type="button">Ticket Sameep</button>
+        <a href="{% url 'ticket_personalizado' %}"><button>Tickets Personalizados</button></a>
+        <a href="{% url 'ticket_sameep' %}"><button>Tickets Sameep</button></a>
     </div>
-    <a href="{% url 'ticket_personalizado' %}"><button> Ir a Tickets Personalizados </button></a>
+    
 </body>
 </html>
 

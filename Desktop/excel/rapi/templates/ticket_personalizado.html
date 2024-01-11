@@ -15,6 +15,7 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
+            overflow-y: scroll; /* Agrega una barra de desplazamiento vertical incluso si no es necesario */
         }
 
         h1 {
@@ -58,6 +59,20 @@
         button:hover {
             background-color: #2980b9;
         }
+
+        /* Estilos específicos para la barra de desplazamiento */
+        body::-webkit-scrollbar {
+            width: 20px; /* Ancho de la barra de desplazamiento */
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background-color: #3498db;
+            min-height: 50px; /* Altura mínima del pulgar de la barra de desplazamiento */
+        }
+
+        body::-webkit-scrollbar-track {
+            background-color: #ecf0f1; /* Color del riel de la barra de desplazamiento */
+        }
     </style>
 </head>
 <body>
@@ -79,7 +94,42 @@
         <label for="{{ form.ingresar_fecha.id_for_label }}">Ingresar Fecha:</label>
         {{ form.ingresar_fecha }}<br>
         {{ form.ingresar_fecha.errors }}<br>
+        
+        <label for="{{ form.ingresar_hora.id_for_label }}">Ingresar Hora:</label>
+        {{ form.ingresar_hora }}<br>
+        {{ form.ingresar_hora.errors }}<br>
 
+        <label for="{{ form.descripcion.id_for_label }}">Descripcion:</label>
+        {{ form.descripcion }}<br>
+        {{ form.descripcion.errors }}<br>
+
+        <label for="{{ form.detalle_descripcion.id_for_label }}">Detalle Descripcion:</label>
+        {{ form.detalle_descripcion }}<br>
+        {{ form.detalle_descripcion.errors }}<br>
+
+        <label for="{{ form.descripcion_2.id_for_label }}">Descripcion 2:</label>
+        {{ form.descripcion_2 }}<br>
+        {{ form.descripcion_2.errors }}<br>
+        
+        <label for="{{ form.detalle_descripcion_2.id_for_label }}">Detalle Descripcion 2:</label>
+        {{ form.detalle_descripcion_2 }}<br>
+        {{ form.detalle_descripcion_2.errors }}<br>
+        
+        <label for="{{ form.descripcion_3.id_for_label }}">Descripcion 3:</label>
+        {{ form.descripcion_3 }}<br>
+        {{ form.descripcion_3.errors }}<br>
+        
+        <label for="{{ form.detalle_descripcion_3.id_for_label }}">Detalle Descripcion 3:</label>
+        {{ form.detalle_descripcion_3 }}<br>
+        {{ form.detalle_descripcion_3.errors }}<br>
+
+        <label for="{{ form.descripcion_4.id_for_label }}">Descripcion 4:</label>
+        {{ form.descripcion_4 }}<br>
+        {{ form.descripcion_4.errors }}<br>
+        
+        <label for="{{ form.detalle_descripcion_4.id_for_label }}">Detalle Descripcion 4:</label>
+        {{ form.detalle_descripcion_4 }}<br>
+        {{ form.detalle_descripcion_4.errors }}<br>
         <!-- Repite este patrón para los demás campos -->
 
         <button type="submit">Guardar</button>

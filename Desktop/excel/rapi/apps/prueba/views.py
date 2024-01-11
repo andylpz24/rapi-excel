@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import TicketPersonalizadoForm
+from .forms import TicketPersonalizadoForm, TicketSameepForm
 
 def inicio(request):
     return render(request,'index.html')
@@ -31,4 +31,12 @@ def ticket_personalizado(request):
     return render(request, 'ticket_personalizado.html', {'form': form})
 
 def ticket_sameep(request):
-    return render(request, 'ticket_sameep.html')
+    if request.method == 'POST':
+        form = TicketSameepForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('ticket_sameep')
+    else:
+        form = TicketPersonalizadoForm()
+    
+    return render(request, 'ticket_sameep.html', {'form': form})
