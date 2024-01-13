@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Pago Naranja</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #2c3e50;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow-y: scroll; /* Agrega una barra de desplazamiento vertical incluso si no es necesario */
+        }
+
+        h1 {
+            text-align: center;
+            color: #ecf0f1;
+            margin: 20px 0;
+        }
+
+        form {
+            background-color: #34495e;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            width: 80%;
+            box-sizing: border-box;
+            margin-top: 20px;
+        }
+
+        input {
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid #2c3e50;
+            border-radius: 4px;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+        }
+
+        button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Estilos específicos para la barra de desplazamiento */
+        body::-webkit-scrollbar {
+            width: 20px; /* Ancho de la barra de desplazamiento */
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background-color: #3498db;
+            min-height: 50px; /* Altura mínima del pulgar de la barra de desplazamiento */
+        }
+
+        body::-webkit-scrollbar-track {
+            background-color: #ecf0f1; /* Color del riel de la barra de desplazamiento */
+        }
+    </style>
+</head>
+<body>
+    <div style="width: 80%; text-align: center;">
+        <h1>Registrar Pago Naranja</h1>
+    </div>
+    <form method="post" action="{% url 'registrar_pago_naranja' %}">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+
+        <label for="{{ form.DNI_Titular.id_for_label }}">DNI Titular:</label>
+        {{ form.DNI_Titular }}<br>
+        {{ form.DNI_Titular.errors }}<br>
+
+        <label for="{{ form.Nombre_Titular.id_for_label }}">Nombre Titular:</label>
+        {{ form.Nombre_Titular }}<br>
+        {{ form.Nombre_Titular.errors }}<br>
+
+        <label for="{{ form.importe.id_for_label }}">Importe:</label>
+        {{ form.importe }}<br>
+        {{ form.importe.errors }}<br>
+
+        <label for="{{ form.ingresar_fecha.id_for_label }}">Ingresar Fecha:</label>
+        {{ form.ingresar_fecha }}<br>
+        {{ form.ingresar_fecha.errors }}<br>
+
+        <label for="{{ form.ingresar_hora.id_for_label }}">Ingresar Hora:</label>
+        {{ form.ingresar_hora }}<br>
+        {{ form.ingresar_hora.errors }}<br>
+
+        <label for="{{ form.N_transaccion.id_for_label }}">N Transacción:</label>
+        {{ form.N_transaccion }}<br>
+        {{ form.N_transaccion.errors }}<br>
+
+        <label for="{{ form.N_operacion.id_for_label }}">N Operación:</label>
+        {{ form.N_operacion }}<br>
+        {{ form.N_operacion.errors }}<br>
+
+        <label for="{{ form.telefono_titular.id_for_label }}">Teléfono Titular:</label>
+        {{ form.telefono_titular }}<br>
+        {{ form.telefono_titular.errors }}<br>
+
+        <label for="{{ form.cobrador_naranja.id_for_label }}">Cobrador Naranja:</label>
+        {{ form.cobrador_naranja }}<br>
+        {{ form.cobrador_naranja.errors }}<br>
+
+        <button type="submit">Guardar</button>
+    </form>
+</body>
+</html>

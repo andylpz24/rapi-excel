@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>inicio</title>
+    <title>Inicio</title>
     <style>
         body {
             display: flex;
@@ -26,11 +26,11 @@
         }
 
         button {
-            padding: 12px 20px; /* Ajusté el padding */
+            padding: 15px 25px; /* Ajusté el padding */
             font-size: 18px; /* Aumenté el tamaño de la fuente */
             color: #fff;
-            border: 1px solid #34495e; /* Cambié el color del borde */
-            border-radius: 8px; /* Aumenté el radio de borde */
+            border: 2px solid #3498db; /* Cambié el color del borde */
+            border-radius: 10px; /* Aumenté el radio de borde */
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
@@ -53,38 +53,38 @@
             background-color: #f39c12; /* Cambié el color de fondo para el cuarto botón */
         }
 
-        button:nth-child(5) {
-            background-color: #9b59b6; /* Cambié el color de fondo para el quinto botón */
+        a button {
+            text-decoration: none;
+            color: #fff;
+            border: 2px solid #3498db; /* Cambié el color del borde */
+            border-radius: 10px; /* Aumenté el radio de borde */
+            display: inline-block;
+            transition: background-color 0.3s ease;
         }
 
-        button:nth-child(6) {
-            background-color: #e67e22; /* Cambié el color de fondo para el sexto botón */
-        }
-
-        button:nth-child(7) {
-            background-color: #16a085; /* Cambié el color de fondo para el séptimo botón */
+        a button:hover {
+            background-color: #3498db; /* Cambié el color de fondo al pasar el ratón */
         }
 
         button:hover {
-            background-color: #3498db; /* Cambié el color de fondo al pasar el ratón */
+            background-color: #2980b9; /* Cambié el color de fondo al pasar el ratón */
         }
     </style>
 </head>
 <body>
 
     <div class="button-container">
-        <button type="button">Ticket Naranja</button>
+        <a href="{% url 'navegacion_naranja' %}"><button>Registrar Pago Naranja</button></a>
         <button type="button">Configuración</button>
         <button type="button">Ticket Servicekairos</button>
         <button type="button">Registrar Adicional</button>
-        <button type="button">Abrir Promo Escolar</button>
+        <a href="{% url 'abrir_promo_escolar' %}"><button>Abrir Promo Escolar</button></a>
         <a href="{% url 'ticket_personalizado' %}"><button>Tickets Personalizados</button></a>
         <a href="{% url 'ticket_sameep' %}"><button>Tickets Sameep</button></a>
     </div>
     
 </body>
 </html>
-
 
 
 

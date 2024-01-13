@@ -4,6 +4,6 @@ from apps.prueba.views import inicio
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('inicio/',inicio),
+    path('',inicio, name='inicio'),
     path('prueba/', include('apps.prueba.urls')),
 ]

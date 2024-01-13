@@ -39,8 +39,14 @@ class AbrirPromoEscolar(models.Model):
     colegio = models.CharField(max_length=400)
 
     def __str__(self):
-        return self.nombre_apellido_alumno,self.nombre_apellido_tutor
-    
+        return f"{self.nombre_apellido_alumno}, {self.nombre_apellido_tutor}"
+
+class CobradorNaranja(models.Model):
+    nombre_y_apellido = models.CharField(max_length=300)
+
+    def __str__(self):
+        return self.nombre_y_apellido
+
 class RegistartPagoNaranja(models.Model):
     DNI_Titular = models.IntegerField()
     Nombre_Titular = models.CharField(max_length=250)
@@ -50,7 +56,8 @@ class RegistartPagoNaranja(models.Model):
     N_transaccion = models.FloatField()
     N_operacion = models.IntegerField()
     telefono_titular = models.BigIntegerField()
-    #falta agregar colaborador y hacer una seccion de buscar pago
+    cobrador_naranja = models.ForeignKey(CobradorNaranja, on_delete=models.CASCADE, default=1)
+    
     def __str__(self):
-        return self.Nombre_Titular
+        return f"{self.Nombre_Titular} - {self.cobrador_naranja.nombre_y_apellido}"
 
