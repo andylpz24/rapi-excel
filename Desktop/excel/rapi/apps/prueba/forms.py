@@ -20,3 +20,6 @@ class RegistrarPagoNaranjaForm(forms.ModelForm):
     class Meta:
         model = RegistartPagoNaranja
         fields = '__all__'  
+
+class BuscarPagoForm(forms.Form):
+    nombre_titular = forms.CharField(label='Nombre Titular', max_length=250, required=False)

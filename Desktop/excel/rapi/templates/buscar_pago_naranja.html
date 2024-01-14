@@ -1,0 +1,53 @@
+<!-- buscar_pago_naranja.html -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Pago Naranja</title>
+</head>
+<body>
+    <h1>Búsqueda de Pagos Naranja</h1>
+
+    <!-- Añadir el formulario de búsqueda -->
+    <form method="post" action="{% url 'buscar_pago_naranja' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Buscar</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>DNI Titular</th>
+                <th>Nombre Titular</th>
+                <th>Importe</th>
+                <th>Ingresar Fecha</th>
+                <th>Ingresar Hora</th>
+                <th>N Transacción</th>
+                <th>N Operación</th>
+                <th>Teléfono Titular</th>
+                <th>Cobrador Naranja</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for registro in registros %}
+            <tr>
+                <td>{{ registro.id }}</td>
+                <td>{{ registro.DNI_Titular }}</td>
+                <td>{{ registro.Nombre_Titular }}</td>
+                <td>{{ registro.importe }}</td>
+                <td>{{ registro.ingresar_fecha }}</td>
+                <td>{{ registro.ingresar_hora }}</td>
+                <td>{{ registro.N_transaccion }}</td>
+                <td>{{ registro.N_operacion }}</td>
+                <td>{{ registro.telefono_titular }}</td>
+                <td>{{ registro.cobrador_naranja.nombre_y_apellido }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

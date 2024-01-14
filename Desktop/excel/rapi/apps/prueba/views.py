@@ -1,8 +1,7 @@
 from django.shortcuts import render, redirect
-from .forms import TicketPersonalizadoForm, TicketSameepForm, AbrirPromoEscolarForm, RegistrarPagoNaranjaForm
-from django.http import HttpResponse
-import os
+from .forms import TicketPersonalizadoForm, TicketSameepForm, AbrirPromoEscolarForm, RegistrarPagoNaranjaForm,BuscarPagoForm
 from django.templatetags.static import static
+from .models import RegistartPagoNaranja
 
 def inicio(request):
     return render(request,'index.html')
@@ -62,3 +61,20 @@ def registrar_pago_naranja(request):
         form = RegistrarPagoNaranjaForm()
     
     return render(request, 'registrar_pago_naranja.html', {'form': form})
+
+def buscar_pago_naranja(request):
+    registros = RegistartPagoNaranja.objects.all()
+
+    # Procesar el formulario si se envió
+    if request.method == 'POST':
+        form = BuscarPagoForm(request.POST)
+        if form.is_valid():
+            nombre_titular = form.cleaned_data.get('nombre_titular')
+            
+            # Filtrar los registros por nombre si se proporciona
+            if nombre_titular:
+                registros = registros.filter(Nombre_Titular__icontains=nombre_titular)
+    else:
+        form = BuscarPagoForm()
+
+    return render(request, 'buscar_pago_naranja.html', {'registros': registros, 'form': form})

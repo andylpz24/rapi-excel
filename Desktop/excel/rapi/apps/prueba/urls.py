@@ -5,6 +5,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('navegacion_naranja/registrar_pago_naranja/', views.registrar_pago_naranja, name='registrar_pago_naranja'),
+    path('navegacion_naranja/buscar_pago_naranja/', views.buscar_pago_naranja, name='buscar_pago_naranja'),
     path('configuracion/', views.configuracion, name='configuracion'),
     path('ticket_servicekairos/', views.ticket_servicekairos, name='ticket_servicekairos'),
     path('registrar_adicional/', views.registrar_adicional, name='registrar_adicional'),
