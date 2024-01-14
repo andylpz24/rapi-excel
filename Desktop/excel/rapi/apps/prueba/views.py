@@ -62,10 +62,14 @@ def registrar_pago_naranja(request):
     
     return render(request, 'registrar_pago_naranja.html', {'form': form})
 
+from django.shortcuts import render
+from .forms import BuscarPagoForm
+from .models import RegistartPagoNaranja
+
 def buscar_pago_naranja(request):
     registros = RegistartPagoNaranja.objects.all()
 
-    # Procesar el formulario si se envió
+    # Procesar el formulario si se envió (tanto GET como POST)
     if request.method == 'POST':
         form = BuscarPagoForm(request.POST)
         if form.is_valid():

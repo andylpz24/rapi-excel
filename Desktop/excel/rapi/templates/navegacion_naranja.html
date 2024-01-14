@@ -12,7 +12,7 @@
             padding: 0;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start; /* Alinea los elementos a la izquierda */
             justify-content: center;
             height: 100vh;
         }
@@ -31,7 +31,7 @@
             border-radius: 4px;
             cursor: pointer;
             width: 200px;
-            margin-top: 10px;
+            margin: 10px 0; /* Margen superior e inferior ajustado */
             font-size: 16px;
         }
 
@@ -59,8 +59,6 @@
                 .catch(error => console.error('Error al cargar la vista:', error));
         }
     </script>
-
-    <h1>Vista de Navegación Naranja</h1>
 
     <!-- Botones para navegar a otras vistas -->
     <button onclick="mostrarVista('/prueba/navegacion_naranja/registrar_pago_naranja/')">Registrar Pago</button>
